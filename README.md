@@ -1,4 +1,4 @@
-# SwiftUI Indexed List
+# SwiftUI Indexed List - without Introspect
 
 Add an index bar to a SwiftUI `List` or `ScrollView`.
 
@@ -75,6 +75,7 @@ Construct the `indices` and the scroll view's `content` manually, or provide `da
 ## Requirements
 
 * iOS 14.0+
+* macOS 14.0+
 * Xcode 15.0+
 
 ## Installation
