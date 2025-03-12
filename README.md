@@ -82,10 +82,6 @@ Construct the `indices` and the scroll view's `content` manually, or provide `da
 * Install with [Swift Package Manager](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app).
 * Import `SwiftUIIndexedList` to start using.
 
-## Dependencies
-
-* [SwiftUI Introspect](https://github.com/siteline/swiftui-introspect)
-
 ## Contact
 
 [@ciaranrobrien](https://twitter.com/ciaranrobrien) on Twitter.

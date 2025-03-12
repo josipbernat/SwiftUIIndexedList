@@ -5,7 +5,6 @@
 */
 
 import SwiftUI
-import SwiftUIIntrospect
 
 internal extension Index {
     init(separatorWith contentID: AnyHashable) {
@@ -77,10 +76,6 @@ internal extension View {
     @ViewBuilder func verticalScrollIndicatorVisible(_ visible: Bool) -> some View {
         if #available(iOS 16, *) {
             self.scrollIndicators(visible ? .visible : .hidden, axes: .vertical)
-        } else {
-            self.introspect(.scrollView, on: .iOS(.v14, .v15)) { scrollView in
-                scrollView.showsVerticalScrollIndicator = visible
-            }
         }
     }
 }
