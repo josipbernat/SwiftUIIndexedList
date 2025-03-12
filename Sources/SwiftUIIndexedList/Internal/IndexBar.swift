@@ -172,7 +172,9 @@ where Indices : Equatable,
                 currentIndex.contentID,
                 anchor: currentIndex == indices.first ? .bottomTrailing : .topTrailing
             )
+#if os(iOS)
             selectionFeedbackGenerator.selectionChanged()
+#endif
         }
     }
 }
@@ -218,21 +220,29 @@ private struct IndexBarBackgroundView: View {
     }
 }
 
-
+#if os(iOS) || targetEnvironment(macCatalyst)
 private let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
-
+#endif
 
 private var labelSize: CGSize {
+#if os(iOS) || targetEnvironment(macCatalyst)
     switch UIDevice.current.userInterfaceIdiom {
     case .phone: CGSize(width: 15, height: 14)
     case .pad, .mac: CGSize(width: 30, height: 24)
     default: fatalError("Unsupported UserInterfaceIdiom \(UIDevice.current.userInterfaceIdiom).")
     }
+#else
+    CGSize(width: 30, height: 24)
+#endif
 }
 private var stackPadding: CGFloat {
+#if os(iOS) || targetEnvironment(macCatalyst)
     switch UIDevice.current.userInterfaceIdiom {
     case .phone: 3
     case .pad, .mac: 6
     default: fatalError("Unsupported UserInterfaceIdiom \(UIDevice.current.userInterfaceIdiom).")
     }
+#else
+    6
+#endif
 }
